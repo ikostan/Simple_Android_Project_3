@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Playing App</string>
+    <string name="menu_title">Choose one of the listed options below</string>
+    <string name="redLabel1">Google Map</string>
+    <string name="redLabel2">Play Youtube</string>
+    <string name="redLabel3">Play Music</string>
+    <string name="redLabel4">Play Video</string>
+    <string name="btnTryLabel">Try</string>
+</resources>
