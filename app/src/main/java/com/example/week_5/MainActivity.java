@@ -125,6 +125,17 @@ public class MainActivity extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Stop music
+                if(mPlayer.isPlaying()){
+                    mPlayer.stop();
+                }
+
+                //Stop video
+                if(videoView.isPlaying()){
+                    videoView.stopPlayback();
+                }
+
                 //Close the app
                 finish();
             }
