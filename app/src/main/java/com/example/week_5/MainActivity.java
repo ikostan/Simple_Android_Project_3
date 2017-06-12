@@ -1,6 +1,7 @@
 package com.example.week_5;
 
 import android.content.Intent;
+import android.icu.text.LocaleDisplayNames;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -69,9 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         //All radio-buttons ids
         rGoogle = R.id.radioGoogle;
+        Log.d("rGoogle", String.format("%d", rGoogle)); //Log
         rMusic = R.id.radioMusic;
+        Log.d("rMusic", String.format("%d", rMusic)); //Log
         rYouTube = R.id.radioYouTube;
+        Log.d("rYouTube", String.format("%d", rYouTube)); //Log
         rVideo = R.id.radioVideo;
+        Log.d("rVideo", String.format("%d", rVideo)); //Log
 
         mPlayer = MediaPlayer.create(this, R.raw.sleep);
 
@@ -80,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+                Log.d("btnTry", "OnClickListener"); //Log
 
                 try{
                     //Pause music
@@ -94,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
                     videoView.setVisibility(View.INVISIBLE); //Set video player invisible
 
                     rSelected = radioGrp.getCheckedRadioButtonId(); //Get selected option
+
+                    Log.d("rSelected", String.format("%d", rSelected)); //Log
 
                     if(rSelected == rGoogle){
                         //Open google map
@@ -140,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                     videoView.stopPlayback();
                 }
 
+                Log.d("btnClose", "Closing app"); //Log
                 //Close the app
                 finish();
             }
