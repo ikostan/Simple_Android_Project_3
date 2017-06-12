@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
@@ -17,6 +18,7 @@ import java.net.URI;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "Playing App";
     private RadioGroup radioGrp; //Radio group object
     //private RadioButton radioGoogle, radioMusic, radioYouTube, radioVideo;
 
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.i(TAG, "onCreate"); //Logs
 
         //URL's
         googleMapUrl = "https://www.google.ca/maps";
@@ -73,16 +77,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Try button event listener
         btnTry.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
                 try{
-
                     //Pause music
                     if(mPlayer.isPlaying()){
                         mPlayer.pause();
                     }
-
                     //Pause video
                     if(videoView.isPlaying()){
                         videoView.pause();
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Close button event handler
         btnClose.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -140,5 +144,17 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart"); //Logs
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause"); //Logs
     }
 }
